@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+    --muted: #f7f7f7;
+    --muted-foreground: #666666;
+    --border: #efefef;
+    --ring: #000000;
+    --radius: 1rem;
+    --font-inter: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .theme-calm {
+    --background: #f9faf8;
+    --foreground: #151816;
+    --card: #ffffff;
+    --card-foreground: #151816;
+    --primary: #2f6b61;
+    --primary-foreground: #ffffff;
+    --muted: #eef1ec;
+    --muted-foreground: #64706b;
+    --border: #dde5df;
+    --ring: #2f6b61;
+    --profile-card-layout: text_first;
+    --profile-card-animation-ms: 300;
+  }
+
+  .theme-bold {
+    --background: #0d0f12;
+    --foreground: #fff7f2;
+    --card: #15181d;
+    --card-foreground: #fff7f2;
+    --primary: #ff4f6f;
+    --primary-foreground: #1a0a10;
+    --muted: #20242b;
+    --muted-foreground: #c8b8b8;
+    --border: #2a3038;
+    --ring: #ff8a3d;
+    --profile-card-layout: photo_first;
+    --profile-card-animation-ms: 150;
+    --bold-card-parallax-target-fps: 60;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #000000;
+    --card-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+    --muted: #121212;
+    --muted-foreground: #8e8e8e;
+    --border: #1e1e1e;
+    --ring: #ffffff;
+  }
+}
+
+@layer base {
+
+  html,
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+    letter-spacing: 0;
+    /* Native App Scale Lock */
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    overscroll-behavior-y: none;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Force hide scrollbars globally but maintain touch functionality if handled securely */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  body {
+    /* Edge-to-Edge Safe Area Support */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-inter), ui-sans-serif, system-ui;
+  }
+
+  .glass {
+    background: rgba(10, 10, 11, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .aurora {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .aurora::before,
+  .aurora::after {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    background: radial-gradient(closest-side, rgba(0, 229, 255, 0.35), transparent 60%),
+      radial-gradient(closest-side, rgba(112, 0, 255, 0.28), transparent 60%);
+    filter: blur(30px);
+    transform: translate3d(0, 0, 0);
+    animation: aurora-drift 12s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .aurora::after {
+    animation-duration: 16s;
+    animation-direction: reverse;
+    opacity: 0.85;
+  }
+
+  @keyframes aurora-drift {
+    0% {
+      transform: translate(-6%, -8%) rotate(0deg) scale(1.02);
+    }
+    50% {
+      transform: translate(8%, 6%) rotate(12deg) scale(1.1);
+    }
+    100% {
+      transform: translate(-6%, -8%) rotate(0deg) scale(1.02);
+    }
+  }
+}
+
+/* Hide scrollbar universally */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+* {
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
+}
+
+/* Ensure body doesn't generate its own scrollbar when not needed */
+html,
+body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}

@@ -1,0 +1,32 @@
+[functions.process-photo]
+verify_jwt = true
+
+[functions.invite-referral]
+verify_jwt = true
+
+[functions.delete-account]
+verify_jwt = true
+
+[functions.moderate-message]
+verify_jwt = false
+
+[functions.dispatch-notifications]
+verify_jwt = false
+
+[functions.delete-account-finalizer]
+verify_jwt = false
+
+[functions.prepare-data-export]
+verify_jwt = false
+
+[functions.search-movies]
+verify_jwt = true
+
+[functions.search-music]
+verify_jwt = true
+
+[functions.enhance-message]
+verify_jwt = true
+
+[functions.premium-webhook]
+verify_jwt = false

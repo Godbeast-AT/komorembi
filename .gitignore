@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Local environment and secret files
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+.env.secrets
+.env.secrets.local
+*.secret.env
+
+# Logs and generated test output
+*.log
+test-results/
+playwright-report/
+output/
+tsc_output.txt
+tsconfig.tsbuildinfo
+
+# IDE files
+.idea/
+.vscode/

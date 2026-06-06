@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Komorembi</string>
+    <string name="title_activity_main">Komorembi</string>
+    <string name="package_name">com.komorembi.app</string>
+    <string name="custom_url_scheme">com.komorembi.app</string>
+</resources>
